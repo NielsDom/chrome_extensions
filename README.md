@@ -1,1 +1,1 @@
-# chrome_extensions
+# Instagram bot - chrome extensions
