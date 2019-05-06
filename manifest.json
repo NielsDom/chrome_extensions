@@ -13,7 +13,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://instagram.com//*"],
+      "matches": ["https://www.instagram.com/*"],
       "js": ["content.js"]
     }
   ],

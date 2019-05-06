@@ -7,7 +7,8 @@ const startBtn = document.getElementById('start');
 let msg = {
   likesMinute: 20,
   maxLikeCounter: 10,
-  running: false
+  running: false,
+  runningFollow: false
 };
 let params = {
   active: true,
@@ -44,3 +45,18 @@ maxLikeInput.addEventListener('keyup', function(){
   maxLikeCounter.textContent = maxLikeInput.value
   msg.maxLikeCounter = Number(maxLikeInput.value) 
 });
+
+
+
+
+
+const startFollow = document.getElementById('startFollow');
+
+startFollow.addEventListener("click", function(){
+  if(!msg.runningFollow){
+    msg.runningFollow = true
+  } else {
+    msg.runningFollow = false
+  }
+  return sendMessage()
+})
