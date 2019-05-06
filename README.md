@@ -1,6 +1,3 @@
-# Instagram bot - chrome extensions
-
+# jambon
 work in progress...
-
-current feature: Auto likes
 
