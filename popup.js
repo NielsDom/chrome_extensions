@@ -1,19 +1,43 @@
-const likeInput = document.getElementById('likeInput');
-const likeCounter = document.getElementById('likeCounter');
+const likesMinuteInput = document.getElementById('likesMinuteInput');
+const likesMinute = document.getElementById('likesMinute');
 const maxLikeInput = document.getElementById('maxLikeInput');
 const maxLikeCounter = document.getElementById('maxLikeCounter');
-const start = document.getElementById('start');
+const startBtn = document.getElementById('start');
 
-likeInput.addEventListener('keyup', displayLikeCounter);
-maxLikeInput.addEventListener('keyup', displayMaxLike);
-start.addEventListener('click', displayMaxLike);
-
-function displayLikeCounter() {
-  likeCounter.textContent = likeInput.value
+let msg = {
+  likesMinute: 20,
+  maxLikeCounter: 10,
+  running: false
+};
+let params = {
+  active: true,
+  currentWindow: true
 }
-function displayMaxLike() {
+
+function sendMessage(){
+  chrome.tabs.query(params, function(tabs){chrome.tabs.sendMessage(tabs[0].id, msg)});
+}
+
+startBtn.addEventListener("click", function(){
+  if(!msg.running){
+    msg.running = true
+    document.getElementById("domrunning").innerHTML = "Running!"
+    startBtn.innerHTML = "stop"
+  } else {
+    msg.running = false
+    document.getElementById("domrunning").innerHTML = "Not running!"
+    startBtn.innerHTML = "start"
+  }
+  return sendMessage()
+})
+
+
+likesMinuteInput.addEventListener('keyup', function(){
+  likesMinute.textContent = likesMinuteInput.value
+  msg.likesMinute = Number(likesMinuteInput.value) 
+});
+
+maxLikeInput.addEventListener('keyup', function(){
   maxLikeCounter.textContent = maxLikeInput.value
-}
-function displayStart() {
-  document.getElementById('showStart').textContent = 'lol'
-}
+  msg.maxLikeCounter = Number(maxLikeInput.value) 
+});

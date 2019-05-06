@@ -3,24 +3,27 @@
   <head>
     <link rel='stylesheet' href='style.css'>
     <title>
-      Hello World
+      Insta bot
     </title>
   </head>
   <body>
     <h1>
       Insta Bot
     </h1>
+    <p id='domrunning'>
+
+    </p>
     <h3 id='greet'>
-      likes/minutes: <span id='likeCounter'>1</span>
+      likes/minutes: <span id='likesMinute'>20</span>
     </h3>
-    <input type='number' min='1' value='1' id='likeInput'>
+    <input type='number' min='1' value='20' id='likesMinuteInput'>
     <h3 id='greet'>
-        Max likes: <span id='maxLikeCounter'>50</span>
-      </h3>
-      <input type='number' min='1' value='50' id='maxLikeInput'>
-      <button id='showStart'>
-        hi
-      </button>
+      Max likes: <span id='maxLikeCounter'>10</span>
+    </h3>
+    <input type='number' min='1' value='10' id='maxLikeInput'>
+    <button id='start'>
+      GO
+    </button>
     <script src="popup.js"></script>
   </body>
 </html>
