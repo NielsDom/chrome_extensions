@@ -4,12 +4,16 @@
   "version": "1.0",
   "description": "insta bot",
   "permissions": [
-    "activeTab"
+    "activeTab", "tabs"
   ],
   "icons": {
     "128": "./icons/128.png",
     "48": "./icons/48.png",
     "16": "./icons/16.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
   },
   "content_scripts": [
     {

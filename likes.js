@@ -1,3 +1,6 @@
+
+
+
 const likesMinuteInput = document.getElementById('likesMinuteInput');
 const likesMinute = document.getElementById('likesMinute');
 const maxLikeInput = document.getElementById('maxLikeInput');
@@ -60,3 +63,13 @@ startFollow.addEventListener("click", function(){
   }
   return sendMessage()
 })
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    if(request.tag1) {
+      chrome.tabs.query(params, function (tabs) {
+        chrome.tabs.update({url: 'https://www.instagram.com/explore/tags/kawaiiearrings/'})
+      });
+    }
+  }
+);
